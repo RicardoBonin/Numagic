@@ -77,17 +77,18 @@ function App() {
 
       <style jsx="true">{`
         .main {
-          height: 100%;
           padding: 0 50px;
         }
 
         /* Este codigo eh temporario, pois sera criado no componente Card. */
         .cartao-provisorio {
+          display: grid;
           margin-bottom: 20px;
         }
         .card-container {
           display: grid;
-          padding: 25px;
+          grid-template-rows: 4fr 1fr;
+          padding: 25px 0 0 0;
         }
         #card-1 {
           background-color: #f2994a;
@@ -106,6 +107,25 @@ function App() {
         }
         #card-6 {
           background-color: #9b51e0;
+        }
+
+        #card-container-1 {
+          grid-area: card-1;
+        }
+        #card-container-2 {
+          grid-area: card-2;
+        }
+        #card-container-3 {
+          grid-area: card-3;
+        }
+        #card-container-4 {
+          grid-area: card-4;
+        }
+        #card-container-5 {
+          grid-area: card-5;
+        }
+        #card-container-6 {
+          grid-area: card-6;
         }
       `}</style>
     </div>
