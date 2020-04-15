@@ -6,7 +6,7 @@ const Button = ({ className }) => {
       Select
       <style jsx="true">{`
         button {
-          height: 100%;
+          height: 2em;
           color: #fff;
           color: #fff;
           width: 5em;
@@ -22,10 +22,8 @@ const Button = ({ className }) => {
           background-color: #6fcf97;
         }
 
-        /* TODO: this hover is not workig */
-        .botton-select:hover {
-          font-size: 10px;
-          background-color: #000;
+        .button-select:hover {
+          background-color: #53a776;
         }
       `}</style>
     </button>
