@@ -1,16 +1,14 @@
 import React from "react";
 
-const Button = ({ className }) => {
+const Button = ({ className, title = "Select", cardNumber }) => {
   return (
-    <button className={className}>
-      Select
+    <button className={className} onClick={() => console.log(cardNumber)}>
+      {title}
       <style jsx="true">{`
         button {
-          height: 2em;
           color: #fff;
           color: #fff;
-          width: 5em;
-          padding: 7px;
+          padding: 10px;
           border: 1px #6fcf97;
           border-radius: 2px;
           cursor: pointer;
