@@ -6,6 +6,7 @@ import cardsReducer from "./reducer";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import Button from "./components/Button";
+import Cards from "./components/Cards";
 
 const store = createStore(cardsReducer);
 
@@ -72,6 +73,7 @@ function App() {
               <Button className="button-select" cardNumber={6} />
             </div>
           </MagicContainer>
+          <Cards />
         </div>
       </Provider>
 
