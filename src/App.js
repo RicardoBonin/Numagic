@@ -12,9 +12,9 @@ const store = createStore(cardsReducer);
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className="App">
+        <Header />
         <div className="main">
           <MagicContainer>
             <Page1 />
@@ -23,14 +23,13 @@ function App() {
             <Page4 />
           </MagicContainer>
         </div>
-      </Provider>
-
+      </div>
       <style jsx="true">{`
         .main {
           padding: 0 50px;
         }
       `}</style>
-    </div>
+    </Provider>
   );
 }
 
