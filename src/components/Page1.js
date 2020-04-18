@@ -61,7 +61,6 @@ const Page1 = ({ pageVisible }) =>
         </div>
         <Button className="button-select" cardNumber={6} title="Pick" />
       </div>
-
       <style jsx="true">{`
         .page-container {
           display: grid;

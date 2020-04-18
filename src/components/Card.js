@@ -2,18 +2,17 @@ import React from 'react';
 import { connect } from "react-redux";
 import Button from './Button'
 
-const Cards = ({cards}) => {
+const Card = ({data}) => {
   return (
     <div className="cards">
-      {Object
-        .keys(cards.value)
-        .map((card) => {
+      {
+        data.cards.map((card) => {
           return(
             <div className="card-containe" key={card}>
-              <div className="card" style={{background: `${cards.value[card].color}`}}>
-                <p>{cards.value[card].numbers.join(" ")}</p>
+              <div className="card" style={{background: `${card.color}`}}>
+                <p>{card.numbers.join(" ")}</p>
               </div>
-              <Button key={card} className="button-select" cardNumber={cards.value[card]} />
+              <Button key={card} className="button-select" cardNumber={card} />
             </div>
           )
         })
@@ -45,7 +44,7 @@ const Cards = ({cards}) => {
 }
 const mapStateToProps = (state) => {
   return{
-    cards: state
+    data: state
   }
 }
-export default connect (mapStateToProps) (Cards)
+export default connect (mapStateToProps) (Card)
