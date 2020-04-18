@@ -250,6 +250,11 @@ const INITIAL_STATE = {
 
 const cardsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case "CHANGE_LANGUAGE":
+      return {
+        ...state,
+        language: action.value
+      };
     case "CARD01":
       return { ...state, value: action.value };
     case "CARD02":

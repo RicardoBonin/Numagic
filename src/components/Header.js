@@ -2,16 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { ReactComponent as BrazilFlag } from "../assets/flags/brazil.svg";
 import { ReactComponent as UKFlag } from "../assets/flags/united-kingdom.svg";
+import { changeLanguage } from "../actions.js";
 
-const Header = ({ currentLanguage }) => {
+const Header = ({ currentLanguage, changeLanguage }) => {
   return (
     <div className="container-header">
       <h1>NUMAGIC</h1>
       <div className="language">
-        <span className="en-gb" onClick={() => console.log("en-gb")}>
+        <span id="en-gb" onClick={changeLanguage("en-gb")}>
           <UKFlag />
         </span>
-        <span className="pt-br" onClick={() => console.log("pt-br")}>
+        <span id="pt-br" onClick={changeLanguage("pt-br")}>
           <BrazilFlag />
         </span>
       </div>
@@ -49,12 +50,16 @@ const Header = ({ currentLanguage }) => {
           cursor: pointer;
         }
 
-        svg {
-          opacity: 0.4;
+        #pt-br svg {
+          opacity: ${currentLanguage === "pt-br" ? 1 : 0.4};
+        }
+
+        #en-gb svg {
+          opacity: ${currentLanguage === "en-gb" ? 1 : 0.4};
         }
 
         svg:hover {
-          opacity: 1;
+          opacity: 1 !important;
         }
       `}</style>
     </div>
@@ -66,4 +71,14 @@ const mapStateToProps = ({ language }) => {
     currentLanguage: language
   };
 };
-export default connect(mapStateToProps)(Header);
+
+const mapDispatchToProps = dispatch => {
+  return {
+    changeLanguage: language => () => dispatch(changeLanguage(language))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
