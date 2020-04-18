@@ -37,12 +37,12 @@ const INITIAL_STATE = {
       61,
       63
     ],
-    selected: false,
+    selected: true,
     color: "#F2994A"
   },
     {
     className: "card-2",
-    firstNumber: 1,
+    firstNumber: 2,
     numbers: [
       2,
       3,
