@@ -1,0 +1,20 @@
+{
+  "page1": {
+    "instructionTitle": "Pick a card.",
+    "buttonText": "This"
+  },
+  "page2": {
+    "instructionTitle": "Pick a number.",
+    "instructionSubtitle": "Then click the \"Ready\" button.",
+    "button": "Ready"
+  },
+  "page3": {
+    "instructionTitle": "Select the cards which have your number.",
+    "instructionSubtitle": "Then click the \"Ready\" button.",
+    "button": "Ready"
+  },
+  "page4": {
+    "instructionTitle": "The number you picked was...",
+    "button": "Do it again!"
+  }
+}
