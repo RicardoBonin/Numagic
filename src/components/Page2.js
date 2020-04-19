@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import Instruction from "./Instruction";
-import Card from "./Card";
+import CardBig from "./Card";
+import Button from "./Button";
 
 import { getLanguage } from "../languages/utils";
 
-const Page2 = ({ pageVisible, selectedLanguage }) => {
+const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
   const {
     page2: { instructionTitle, instructionSubtitle, button }
   } = getLanguage(selectedLanguage);
@@ -14,7 +15,18 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
     pageVisible && (
       <div className="page-container">
         <Instruction title={instructionTitle} subtitle={instructionSubtitle} />
-        <Card />
+        <div className="card-container" id="card-container-1">
+            {cards.filter((obj,idx)=> obj.selected === true).map((card,i) =>{
+              console.log(i)
+              return( 
+                <CardBig color={card.color} numbers={card.numbers} idx={i+1}/>
+              
+              )  
+            })
+
+            }
+        </div>
+
         <style jsx="true">{`
           .page-container {
             display: grid;
@@ -34,10 +46,6 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
             grid-template-rows: 4fr 1fr;
             padding: 25px 0 0 0;
           }
-          #card-1 {
-            background-color: #f2994a;
-          }
-
           #card-container-1 {
             grid-area: card-1;
           }
@@ -47,10 +55,11 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
   );
 };
 
-const mapStateToProps = ({ page2Visible, language }) => {
+const mapStateToProps = ({ page2Visible, language,cards }) => {
   return {
     pageVisible: page2Visible,
-    selectedLanguage: language
+    selectedLanguage: language,
+    cards: cards
   };
 };
 export default connect(mapStateToProps)(Page2);
