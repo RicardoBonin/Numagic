@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import Button from "./Button";
 import Instruction from "./Instruction";
+import CardBig from "./Card";
+import Button from "./Button";
+
 import { getLanguage } from "../languages/utils";
 
-const Page2 = ({ pageVisible, selectedLanguage }) => {
+const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
   const {
     page2: { instructionTitle, instructionSubtitle, button }
   } = getLanguage(selectedLanguage);
@@ -14,14 +16,17 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
       <div className="page-container">
         <Instruction title={instructionTitle} subtitle={instructionSubtitle} />
         <div className="card-container" id="card-container-1">
-          <div className="cartao-provisorio" id="card-1">
-            <p>
-              1 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 39 41 43 45 47
-              49 51 53 55 57 59 61 63
-            </p>
-          </div>
-          <Button className="button-select" cardNumber={1} title={button} />
+            {cards.filter((obj,idx)=> obj.selected === true).map((card,i) =>{
+              console.log(i)
+              return( 
+                <CardBig color={card.color} numbers={card.numbers} idx={i+1}/>
+              
+              )  
+            })
+
+            }
         </div>
+
         <style jsx="true">{`
           .page-container {
             display: grid;
@@ -41,10 +46,6 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
             grid-template-rows: 4fr 1fr;
             padding: 25px 0 0 0;
           }
-          #card-1 {
-            background-color: #f2994a;
-          }
-
           #card-container-1 {
             grid-area: card-1;
           }
@@ -54,10 +55,11 @@ const Page2 = ({ pageVisible, selectedLanguage }) => {
   );
 };
 
-const mapStateToProps = ({ page2Visible, language }) => {
+const mapStateToProps = ({ page2Visible, language,cards }) => {
   return {
     pageVisible: page2Visible,
-    selectedLanguage: language
+    selectedLanguage: language,
+    cards: cards
   };
 };
 export default connect(mapStateToProps)(Page2);
