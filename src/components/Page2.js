@@ -1,14 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import Instruction from "./Instruction";
-import CardBig from "./Card";
+import Card from "./Card";
 import Button from "./Button";
-
 import { getLanguage } from "../languages/utils";
-
 const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
   const {
-    page2: { instructionTitle, instructionSubtitle, button }
+    page2: { instructionTitle, instructionSubtitle },
   } = getLanguage(selectedLanguage);
 
   return (
@@ -16,17 +14,23 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
       <div className="page-container">
         <Instruction title={instructionTitle} subtitle={instructionSubtitle} />
         <div className="card-container" id="card-container-1">
-            {cards.filter((obj,idx)=> obj.selected === true).map((card,i) =>{
-              console.log(i)
-              return( 
-                <CardBig color={card.color} numbers={card.numbers} idx={i+1}/>
-              
-              )  
-            })
-
-            }
+          {cards
+            .filter((obj, idx) => obj.selected === true)
+            .map((card, i) => {
+              console.log(i);
+              return (
+                <div>
+                  <Card
+                    color={card.color}
+                    numbers={card.numbers}
+                    idx={i + 1}
+                    size={"1.8em"}
+                  />
+                  <Button className="button-select" cardNumber={2} />
+                </div>
+              );
+            })}
         </div>
-
         <style jsx="true">{`
           .page-container {
             display: grid;
@@ -34,8 +38,8 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
             grid-template-areas:
               "instruction instruction instruction"
               ". card-1 .";
+            text-align: center;
           }
-
           /* Este codigo eh temporario, pois sera criado no componente Card. */
           .cartao-provisorio {
             display: grid;
@@ -55,11 +59,11 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
   );
 };
 
-const mapStateToProps = ({ page2Visible, language,cards }) => {
+const mapStateToProps = ({ page2Visible, language, cards }) => {
   return {
     pageVisible: page2Visible,
     selectedLanguage: language,
-    cards: cards
+    cards: cards,
   };
 };
 export default connect(mapStateToProps)(Page2);
