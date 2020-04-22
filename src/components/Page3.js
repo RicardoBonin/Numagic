@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
-import CardBig from "./Card";
+import Card from "./Card";
 
 // TODO: nesta pagina eh onde tenho que criar os checkboxes e o botao Ready.
 
@@ -20,24 +20,31 @@ const Page3 = ({ pageVisible, selectedLanguage, cards }) => {
           {cards
             .filter((obj, idx) => obj.selected === false)
             .map((card, i) => {
-              console.log(card);
               return (
-                <CardBig
+                <Card
                   color={card.color}
                   numbers={card.numbers}
                   idx={i + 1}
+                  size={"1.0em"}
                 />
               );
             })}
+        </div>
+        <div>
           <Button className="button-select" cardNumber={2} />
         </div>
         <style jsx="true">{`
-        .card-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
-          gap: 1em;
-          margin-top: 1em;
+          .card-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1em;
+            margin-top: 1em;
+          }
+          .page-container {
+            /*  */
+            text-align: center;
+          }
         `}</style>
       </div>
     )

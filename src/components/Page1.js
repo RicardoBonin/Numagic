@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
-import CardBig from "./Card";
+import Card from "./Card";
 
 const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
   const {
@@ -16,10 +16,16 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (
-              <CardBig color={card.color} numbers={card.numbers} idx={i + 1} />
+              <div>
+                <Card
+                  color={card.color}
+                  numbers={card.numbers}
+                  size={"1.0em"}
+                />
+                <Button className="button-select" cardNumber={2} />
+              </div>
             );
           })}
-          <Button className="button-select" cardNumber={6} title={button} />
         </div>
         <style jsx="true">{`
           .card-container {
@@ -27,7 +33,10 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 1em;
+            margin: auto;
+            text-align: center;
             margin-top: 1em;
+            width: 80%;
           }
         `}</style>
       </div>

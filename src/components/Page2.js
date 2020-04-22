@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Instruction from "./Instruction";
-import CardBig from "./Card";
+import Card from "./Card";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
@@ -19,14 +19,17 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
             .map((card, i) => {
               console.log(i);
               return (
-                <CardBig
-                  color={card.color}
-                  numbers={card.numbers}
-                  idx={i + 1}
-                />
+                <div>
+                  <Card
+                    color={card.color}
+                    numbers={card.numbers}
+                    idx={i + 1}
+                    size={"1.8em"}
+                  />
+                  <Button className="button-select" cardNumber={2} />
+                </div>
               );
             })}
-          <Button className="button-select" cardNumber={2} />
         </div>
         <style jsx="true">{`
           .page-container {
@@ -35,6 +38,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
             grid-template-areas:
               "instruction instruction instruction"
               ". card-1 .";
+            text-align: center;
           }
           /* Este codigo eh temporario, pois sera criado no componente Card. */
           .cartao-provisorio {

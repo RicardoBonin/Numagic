@@ -35,7 +35,7 @@ const INITIAL_STATE = {
         57,
         59,
         61,
-        63
+        63,
       ],
       selected: false,
       color: "#F2994A",
