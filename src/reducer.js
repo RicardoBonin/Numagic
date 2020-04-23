@@ -242,8 +242,8 @@ const INITIAL_STATE = {
     },
   ],
   page1Visible: false,
-  page2Visible: false,
-  page3Visible: true,
+  page2Visible: true,
+  page3Visible: false,
   page4Visible: false,
   language: "pt-br",
 };
@@ -261,6 +261,12 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
       return { ...state, value: action };
     case "CARD03":
       return { ...state, value: action };
+    case "TEST":
+      return {
+        ...state,
+        page2Visible: state.page2Visible === action.page2,
+        page3Visible: state.page3Visible === action.page3,
+      };
     default:
       return state;
   }

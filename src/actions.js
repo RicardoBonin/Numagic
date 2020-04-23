@@ -1,7 +1,7 @@
-export const changeLanguage = language => {
+export const changeLanguage = (language) => {
   return {
     type: "CHANGE_LANGUAGE",
-    value: language
+    value: language,
   };
 };
 
@@ -42,11 +42,11 @@ export const card01 = () => {
         57,
         59,
         61,
-        63
+        63,
       ],
       selected: false,
-      color: "#F2994A"
-    }
+      color: "#F2994A",
+    },
   };
 };
 
@@ -87,11 +87,11 @@ export const card02 = () => {
         58,
         59,
         62,
-        63
+        63,
       ],
       selected: false,
-      color: "#2D9CDB"
-    }
+      color: "#2D9CDB",
+    },
   };
 };
 
@@ -132,10 +132,17 @@ export const card03 = () => {
         60,
         61,
         62,
-        63
+        63,
       ],
       selected: false,
-      color: "#828282"
-    }
+      color: "#828282",
+    },
+  };
+};
+export const test = () => {
+  return {
+    type: "TEST",
+    page2: false,
+    page3: true
   };
 };

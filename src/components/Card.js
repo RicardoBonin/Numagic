@@ -15,10 +15,13 @@ const Card = ({ numbers, color, size }) => {
           border-radius: 3px;
           box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.2);
           display: grid;
+          gap: 0.6em;
           grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
           grid-template-rows: 1fr 1fr 1fr 1fr;
           margin-bottom: 20px;
-          padding: 0.7em;
+          max-width: 20em;
+          min-height: 12em;
+          padding: 20px;
         }
         .card {
           text-align: center;

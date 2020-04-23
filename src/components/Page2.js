@@ -4,9 +4,10 @@ import Instruction from "./Instruction";
 import Card from "./Card";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
+import { test } from "../actions";
 const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
   const {
-    page2: { instructionTitle, instructionSubtitle },
+    page2: { instructionTitle, instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
 
   return (
@@ -17,16 +18,20 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
           {cards
             .filter((obj, idx) => obj.selected === true)
             .map((card, i) => {
-              console.log(i);
               return (
-                <div>
+                <div key={i}>
                   <Card
                     color={card.color}
                     numbers={card.numbers}
                     idx={i + 1}
                     size={"1.8em"}
                   />
-                  <Button className="button-select" cardNumber={2} />
+                  <Button
+                    className="button-select"
+                    cardNumber={2}
+                    title={button}
+                    onClick={()=>test()}
+                  />
                 </div>
               );
             })}
@@ -66,4 +71,9 @@ const mapStateToProps = ({ page2Visible, language, cards }) => {
     cards: cards,
   };
 };
-export default connect(mapStateToProps)(Page2);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    test: ()=>dispatch(test())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Page2);

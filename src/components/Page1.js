@@ -16,13 +16,18 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (
-              <div>
+              <div key={i}>
                 <Card
                   color={card.color}
                   numbers={card.numbers}
-                  size={"1.0em"}
+                  size={"1em"}
+                  key={i}
                 />
-                <Button className="button-select" cardNumber={2} />
+                <Button
+                  className="button-select"
+                  cardNumber={i + 1}
+                  title={button}
+                />
               </div>
             );
           })}
@@ -32,10 +37,10 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 1em;
+            gap: 3em;
             margin: auto;
             text-align: center;
-            margin-top: 1em;
+            margin-top: 3em;
             width: 80%;
           }
         `}</style>

@@ -21,25 +21,29 @@ const Page3 = ({ pageVisible, selectedLanguage, cards }) => {
             .filter((obj, idx) => obj.selected === false)
             .map((card, i) => {
               return (
-                <Card
-                  color={card.color}
-                  numbers={card.numbers}
-                  idx={i + 1}
-                  size={"1.0em"}
-                />
+                <div key={i}>
+                  <Card
+                    color={card.color}
+                    numbers={card.numbers}
+                    idx={i + 1}
+                    size={"1.0em"}
+                  />
+                  <Button className="button-select" cardNumber={i + 1} />
+                </div>
               );
             })}
         </div>
-        <div>
-          <Button className="button-select" cardNumber={2} />
-        </div>
+
         <style jsx="true">{`
           .card-container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 1em;
-            margin-top: 1em;
+            gap: 3em;
+            margin: auto;
+            text-align: center;
+            margin-top: 3em;
+            width: 80%;
           }
           .page-container {
             /*  */
