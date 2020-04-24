@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import Instruction from "./Instruction";
 import Card from "./Card";
 import Button from "./Button";
+import { step02 } from "../actions";
 import { getLanguage } from "../languages/utils";
-import { test } from "../actions";
-const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
+const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
   const {
     page2: { instructionTitle, instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
@@ -30,7 +30,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
                     className="button-select"
                     cardNumber={2}
                     title={button}
-                    onClick={()=>test()}
+                    click={() => step02()}
                   />
                 </div>
               );
@@ -73,7 +73,7 @@ const mapStateToProps = ({ page2Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    test: ()=>dispatch(test())
-  }
-}
+    step02: () => dispatch(step02()),
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Page2);

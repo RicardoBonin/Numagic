@@ -8,45 +8,6 @@ export const changeLanguage = (language) => {
 export const card01 = () => {
   return {
     type: "CARD01",
-    value: {
-      firstNumber: 1,
-      numbers: [
-        1,
-        3,
-        5,
-        7,
-        9,
-        11,
-        13,
-        15,
-        17,
-        19,
-        21,
-        23,
-        25,
-        27,
-        29,
-        31,
-        33,
-        35,
-        37,
-        39,
-        41,
-        43,
-        45,
-        47,
-        49,
-        51,
-        53,
-        55,
-        57,
-        59,
-        61,
-        63,
-      ],
-      selected: false,
-      color: "#F2994A",
-    },
   };
 };
 
@@ -139,10 +100,18 @@ export const card03 = () => {
     },
   };
 };
-export const test = () => {
+export const step02 = () => {
   return {
-    type: "TEST",
-    page2: false,
-    page3: true
+    type: "STEP02",
+  };
+};
+export const step03 = () => {
+  return {
+    type: "STEP03",
+  };
+};
+export const restart = () => {
+  return {
+    type: "RESTART",
   };
 };

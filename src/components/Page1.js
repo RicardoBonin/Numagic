@@ -4,8 +4,9 @@ import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
+import { card01 } from '../actions'
 
-const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
+const Page1 = ({ pageVisible, selectedLanguage, cards, card01 }) => {
   const {
     page1: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
@@ -25,8 +26,8 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
                 />
                 <Button
                   className="button-select"
-                  cardNumber={i + 1}
                   title={button}
+                  click={()=>card01()}
                 />
               </div>
             );
@@ -56,4 +57,9 @@ const mapStateToProps = ({ page1Visible, language, cards }) => {
     cards: cards,
   };
 };
-export default connect(mapStateToProps)(Page1);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    card01: () => dispatch(card01())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Page1);
