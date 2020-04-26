@@ -4,6 +4,15 @@ export const changeLanguage = (language) => {
     value: language,
   };
 };
+export const selectedCard = (cardId, selectionType) => {
+  return {
+    type: "SELECT_CARD",
+    value: {
+      cardId,
+      selectionType,
+    },
+  };
+};
 
 export const card01 = () => {
   return {

@@ -45,11 +45,6 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
               ". card-1 .";
             text-align: center;
           }
-          /* Este codigo eh temporario, pois sera criado no componente Card. */
-          .cartao-provisorio {
-            display: grid;
-            margin-bottom: 20px;
-          }
           .card-container {
             display: grid;
             grid-template-rows: 4fr 1fr;

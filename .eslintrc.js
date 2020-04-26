@@ -21,7 +21,17 @@ module.exports = {
   },
   'plugins': [
     'react',
+    'jsx-ally',
+    'import'
   ],
   'rules': {
+    'react/jsx-filename-extension':[
+      'erro',
+      {
+        'extensions':['.js','.jsx']
+      }
+    ],
+    'globo-require':'off',
+    'no-unused-expressions': ['error', {'allowTaggedTemplates':true}]
   },
 };
