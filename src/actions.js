@@ -4,12 +4,12 @@ export const changeLanguage = (language) => {
     value: language,
   };
 };
-export const selectedCard = (cardId, selectionType) => {
+export const selectedCard = (value) => {
   return {
     type: "SELECT_CARD",
     value: {
-      cardId,
-      selectionType,
+      cardId: value.card.id,
+      selectionType: value,
     },
   };
 };

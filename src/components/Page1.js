@@ -4,9 +4,16 @@ import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
-import { card01 } from '../actions'
+import { card01, selectedCard } from "../actions";
+import { findAllByDisplayValue } from "@testing-library/react";
 
-const Page1 = ({ pageVisible, selectedLanguage, cards, card01 }) => {
+const Page1 = ({
+  pageVisible,
+  selectedLanguage,
+  cards,
+  card01,
+  selectedCard,
+}) => {
   const {
     page1: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
@@ -27,7 +34,7 @@ const Page1 = ({ pageVisible, selectedLanguage, cards, card01 }) => {
                 <Button
                   className="button-select"
                   title={button}
-                  click={()=>card01()}
+                  click={() => selectedCard(card.id, "single")}
                 />
               </div>
             );
@@ -59,7 +66,8 @@ const mapStateToProps = ({ page1Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    card01: () => dispatch(card01())
-  }
-}
+    card01: () => dispatch(card01()),
+    selectedCard: (value) => dispatch(selectedCard(value)),
+  };
+};
 export default connect(mapStateToProps, mapDispatchToProps)(Page1);

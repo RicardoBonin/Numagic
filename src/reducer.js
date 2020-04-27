@@ -1,7 +1,8 @@
+import { cardSelected } from "./actions";
 const INITIAL_STATE = {
   cards: [
     {
-      className: "card-1",
+      id: "card-1",
       firstNumber: 1,
       numbers: [
         1,
@@ -41,7 +42,7 @@ const INITIAL_STATE = {
       color: "#F2994A",
     },
     {
-      className: "card-2",
+      id: "card-2",
       firstNumber: 2,
       numbers: [
         2,
@@ -81,7 +82,7 @@ const INITIAL_STATE = {
       color: "#2D9CDB",
     },
     {
-      className: "card-3",
+      id: "card-3",
       firstNumber: 4,
       numbers: [
         4,
@@ -121,7 +122,7 @@ const INITIAL_STATE = {
       color: "#828282",
     },
     {
-      className: "card-4",
+      id: "card-4",
       firstNumber: 8,
       numbers: [
         8,
@@ -161,7 +162,7 @@ const INITIAL_STATE = {
       color: "#EB5757",
     },
     {
-      className: "card-5",
+      id: "card-5",
       firstNumber: 16,
       numbers: [
         16,
@@ -201,7 +202,7 @@ const INITIAL_STATE = {
       color: "#F2C94C",
     },
     {
-      className: "card-6",
+      id: "card-6",
       firstNumber: 32,
       numbers: [
         32,
@@ -241,8 +242,8 @@ const INITIAL_STATE = {
       color: "#9B51E0",
     },
   ],
-  page1Visible: false,
-  page2Visible: true,
+  page1Visible: true,
+  page2Visible: false,
   page3Visible: false,
   page4Visible: false,
   language: "pt-br",
@@ -266,7 +267,7 @@ const makeCardSelected = (cardSelected, selectionType = "single", state) => {
             ...state,
             selected: false,
           };
-      };
+      }
     }),
   };
 };
@@ -279,6 +280,8 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         language: action.value,
       };
+    case "SELECT_CARD":
+      return makeCardSelected(action.value.cardId, action.value.selectionType);
     case "CARD01":
       console.log(state.cards);
       return {
