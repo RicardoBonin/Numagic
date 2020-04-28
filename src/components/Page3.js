@@ -4,7 +4,7 @@ import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
-import { step03 } from '../actions'
+import { step03 } from "../actions";
 
 // TODO: nesta pagina eh onde tenho que criar os checkboxes e o botao Ready.
 
@@ -33,10 +33,12 @@ const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
                 </div>
               );
             })}
-            
         </div>
         <Button className="button-select" click={() => step03()} />
         <style jsx="true">{`
+          div {
+            text-align: center;
+          }
           .button-select {
             margin-top: 1em;
           }
@@ -45,13 +47,8 @@ const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 3em;
-            margin: auto;
-            text-align: center;
+            justify-items: center;
             margin-top: 3em;
-            width: 80%;
-          }
-          .page-container {
-            /*  */
             text-align: center;
           }
         `}</style>

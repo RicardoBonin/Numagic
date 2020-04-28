@@ -3,28 +3,30 @@ const Card = ({ numbers, color, size }) => {
   // console.log(data.cards.filter(card=> card.selected === true))
   return (
     <div
-      className="cartao-provisorio"
-      id="card-1"
-      style={{ background: `${color}`,fontSize: `${size}` }}
+      className="card"
+      style={{ background: `${color}`, fontSize: `${size}` }}
     >
       {numbers.map((number) => {
-        return <div key={number} className="card">{number}</div>;
+        return (
+          <div key={number} className="number">
+            {number}
+          </div>
+        );
       })}
       <style jsx="true">{`
-        .cartao-provisorio {
+        .card {
           border-radius: 3px;
-          box-shadow: 0px 0px 2px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 10px 10px #888888;
           display: grid;
-          gap: 0.6em;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-          grid-template-rows: 1fr 1fr 1fr 1fr;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-rows: repeat(4, 1fr);
           margin-bottom: 20px;
           max-width: 20em;
           min-height: 12em;
           padding: 20px;
         }
-        .card {
-          text-align: center;
+        .number {
+          padding: 0.7em;
         }
       `}</style>
     </div>

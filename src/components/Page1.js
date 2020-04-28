@@ -4,16 +4,9 @@ import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
-import { card01, selectedCard } from "../actions";
-import { findAllByDisplayValue } from "@testing-library/react";
+import { selectedCard } from "../actions";
 
-const Page1 = ({
-  pageVisible,
-  selectedLanguage,
-  cards,
-  card01,
-  selectedCard,
-}) => {
+const Page1 = ({ pageVisible, selectedLanguage, cards, selectedCard }) => {
   const {
     page1: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
@@ -46,10 +39,9 @@ const Page1 = ({
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 3em;
-            margin: auto;
-            text-align: center;
+            justify-items: center;
             margin-top: 3em;
-            width: 80%;
+            text-align: center;
           }
         `}</style>
       </div>
@@ -66,8 +58,8 @@ const mapStateToProps = ({ page1Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    card01: () => dispatch(card01()),
-    selectedCard: (value) => dispatch(selectedCard(value)),
+    selectedCard: (cardId, selectionType) =>
+      dispatch(selectedCard(cardId, selectionType)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Page1);

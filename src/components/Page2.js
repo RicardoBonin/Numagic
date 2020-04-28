@@ -39,19 +39,15 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
         <style jsx="true">{`
           .page-container {
             display: grid;
-            grid-template-rows: auto;
-            grid-template-areas:
-              "instruction instruction instruction"
-              ". card-1 .";
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+
             text-align: center;
           }
           .card-container {
             display: grid;
-            grid-template-rows: 4fr 1fr;
+            justify-items: center;
             padding: 25px 0 0 0;
-          }
-          #card-container-1 {
-            grid-area: card-1;
           }
         `}</style>
       </div>
