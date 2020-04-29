@@ -268,6 +268,8 @@ const makeCardSelected = (cardSelected, selectionType = "single", state) => {
             ...card,
             selected: false,
           };
+        default:
+          return card;
       }
     }),
   };
@@ -300,7 +302,7 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         page4Visible: true,
       };
     case "RESTART":
-      return { ...state };
+      return (state = INITIAL_STATE);
     default:
       return state;
   }

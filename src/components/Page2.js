@@ -38,10 +38,6 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
         </div>
         <style jsx="true">{`
           .page-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-
             text-align: center;
           }
           .card-container {

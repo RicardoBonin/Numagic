@@ -29,7 +29,6 @@ const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
                     idx={i + 1}
                     size={"1.0em"}
                   />
-                  <Button className="button-select" cardNumber={i + 1} />
                 </div>
               );
             })}
