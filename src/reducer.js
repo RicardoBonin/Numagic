@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   cards: [
     {
-      className: "card-1",
+      id: "card-1",
       firstNumber: 1,
       numbers: [
         1,
@@ -41,7 +41,7 @@ const INITIAL_STATE = {
       color: "#F2994A",
     },
     {
-      className: "card-2",
+      id: "card-2",
       firstNumber: 2,
       numbers: [
         2,
@@ -77,11 +77,11 @@ const INITIAL_STATE = {
         62,
         63,
       ],
-      selected: true,
+      selected: false,
       color: "#2D9CDB",
     },
     {
-      className: "card-3",
+      id: "card-3",
       firstNumber: 4,
       numbers: [
         4,
@@ -121,7 +121,7 @@ const INITIAL_STATE = {
       color: "#828282",
     },
     {
-      className: "card-4",
+      id: "card-4",
       firstNumber: 8,
       numbers: [
         8,
@@ -161,7 +161,7 @@ const INITIAL_STATE = {
       color: "#EB5757",
     },
     {
-      className: "card-5",
+      id: "card-5",
       firstNumber: 16,
       numbers: [
         16,
@@ -201,7 +201,7 @@ const INITIAL_STATE = {
       color: "#F2C94C",
     },
     {
-      className: "card-6",
+      id: "card-6",
       firstNumber: 32,
       numbers: [
         32,
@@ -241,26 +241,68 @@ const INITIAL_STATE = {
       color: "#9B51E0",
     },
   ],
-  page1Visible: false,
+  page1Visible: true,
   page2Visible: false,
-  page3Visible: true,
+  page3Visible: false,
   page4Visible: false,
   language: "pt-br",
 };
 
+const makeCardSelected = (cardSelected, selectionType = "single", state) => {
+  return {
+    ...state,
+    page1Visible: false,
+    page2Visible: true,
+    cards: state.cards.map((card) => {
+      if (card.id === cardSelected) {
+        return {
+          ...card,
+          selected: true,
+        };
+      }
+      switch (selectionType) {
+        case "multiple":
+          return { ...card };
+        case "single":
+          return {
+            ...card,
+            selected: false,
+          };
+        default:
+          return card;
+      }
+    }),
+  };
+};
+
 const cardsReducer = (state = INITIAL_STATE, action) => {
+  console.log(action);
   switch (action.type) {
     case "CHANGE_LANGUAGE":
       return {
         ...state,
         language: action.value,
       };
-    case "CARD01":
-      return { ...state, value: action.value };
-    case "CARD02":
-      return { ...state, value: action };
-    case "CARD03":
-      return { ...state, value: action };
+    case "SELECT_CARD":
+      return makeCardSelected(
+        action.value.cardId,
+        action.value.selectionType,
+        state
+      );
+    case "STEP02":
+      return {
+        ...state,
+        page2Visible: false,
+        page3Visible: true,
+      };
+    case "STEP03":
+      return {
+        ...state,
+        page3Visible: false,
+        page4Visible: true,
+      };
+    case "RESTART":
+      return (state = INITIAL_STATE);
     default:
       return state;
   }

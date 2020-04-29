@@ -1,52 +1,22 @@
-export const changeLanguage = language => {
+export const changeLanguage = (language) => {
   return {
     type: "CHANGE_LANGUAGE",
-    value: language
+    value: language,
+  };
+};
+export const selectedCard = (cardId, selectionType) => {
+  return {
+    type: "SELECT_CARD",
+    value: {
+      cardId,
+      selectionType,
+    },
   };
 };
 
 export const card01 = () => {
   return {
     type: "CARD01",
-    value: {
-      firstNumber: 1,
-      numbers: [
-        1,
-        3,
-        5,
-        7,
-        9,
-        11,
-        13,
-        15,
-        17,
-        19,
-        21,
-        23,
-        25,
-        27,
-        29,
-        31,
-        33,
-        35,
-        37,
-        39,
-        41,
-        43,
-        45,
-        47,
-        49,
-        51,
-        53,
-        55,
-        57,
-        59,
-        61,
-        63
-      ],
-      selected: false,
-      color: "#F2994A"
-    }
   };
 };
 
@@ -87,11 +57,11 @@ export const card02 = () => {
         58,
         59,
         62,
-        63
+        63,
       ],
       selected: false,
-      color: "#2D9CDB"
-    }
+      color: "#2D9CDB",
+    },
   };
 };
 
@@ -132,10 +102,25 @@ export const card03 = () => {
         60,
         61,
         62,
-        63
+        63,
       ],
       selected: false,
-      color: "#828282"
-    }
+      color: "#828282",
+    },
+  };
+};
+export const step02 = () => {
+  return {
+    type: "STEP02",
+  };
+};
+export const step03 = () => {
+  return {
+    type: "STEP03",
+  };
+};
+export const restart = () => {
+  return {
+    type: "RESTART",
   };
 };

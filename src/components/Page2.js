@@ -3,10 +3,11 @@ import { connect } from "react-redux";
 import Instruction from "./Instruction";
 import Card from "./Card";
 import Button from "./Button";
+import { step02 } from "../actions";
 import { getLanguage } from "../languages/utils";
-const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
+const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
   const {
-    page2: { instructionTitle, instructionSubtitle },
+    page2: { instructionTitle, instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
 
   return (
@@ -17,41 +18,32 @@ const Page2 = ({ pageVisible, selectedLanguage, cards }) => {
           {cards
             .filter((obj, idx) => obj.selected === true)
             .map((card, i) => {
-              console.log(i);
               return (
-                <div>
+                <div key={i}>
                   <Card
                     color={card.color}
                     numbers={card.numbers}
                     idx={i + 1}
                     size={"1.8em"}
                   />
-                  <Button className="button-select" cardNumber={2} />
+                  <Button
+                    className="button-select"
+                    cardNumber={2}
+                    title={button}
+                    click={() => step02()}
+                  />
                 </div>
               );
             })}
         </div>
         <style jsx="true">{`
           .page-container {
-            display: grid;
-            grid-template-rows: auto;
-            grid-template-areas:
-              "instruction instruction instruction"
-              ". card-1 .";
             text-align: center;
-          }
-          /* Este codigo eh temporario, pois sera criado no componente Card. */
-          .cartao-provisorio {
-            display: grid;
-            margin-bottom: 20px;
           }
           .card-container {
             display: grid;
-            grid-template-rows: 4fr 1fr;
+            justify-items: center;
             padding: 25px 0 0 0;
-          }
-          #card-container-1 {
-            grid-area: card-1;
           }
         `}</style>
       </div>
@@ -66,4 +58,9 @@ const mapStateToProps = ({ page2Visible, language, cards }) => {
     cards: cards,
   };
 };
-export default connect(mapStateToProps)(Page2);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    step02: () => dispatch(step02()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Page2);

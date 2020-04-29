@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
+import { restart } from '../actions'
 
-const Page4 = ({ pageVisible, selectedLanguage }) => {
+const Page4 = ({ pageVisible, selectedLanguage, restart }) => {
   const {
     page4: { instructionTitle, button }
   } = getLanguage(selectedLanguage);
@@ -15,7 +16,7 @@ const Page4 = ({ pageVisible, selectedLanguage }) => {
         <Instruction title={instructionTitle} />
         <div className="result-container">
           <div className="result">22</div>
-          <Button className="button-select" title={button} />
+          <Button className="button-select" click={() => restart()} title={button} />
         </div>
         <style jsx="true">{`
           .page-container {
@@ -54,5 +55,10 @@ const mapStateToProps = ({ page4Visible, language }) => {
     selectedLanguage: language
   };
 };
+const mapDispatchToPros = (dispatch) => {
+  return {
+    restart: () => dispatch(restart()),
+  }
+};
 
-export default connect(mapStateToProps)(Page4);
+export default connect( mapStateToProps, mapDispatchToPros )(Page4);

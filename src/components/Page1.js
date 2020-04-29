@@ -4,8 +4,9 @@ import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
+import { selectedCard } from "../actions";
 
-const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
+const Page1 = ({ pageVisible, selectedLanguage, cards, selectedCard }) => {
   const {
     page1: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
@@ -16,13 +17,18 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (
-              <div>
+              <div key={i}>
                 <Card
                   color={card.color}
                   numbers={card.numbers}
-                  size={"1.0em"}
+                  size={"1em"}
+                  key={i}
                 />
-                <Button className="button-select" cardNumber={2} />
+                <Button
+                  className="button-select"
+                  title={button}
+                  click={() => selectedCard(card.id, "single")}
+                />
               </div>
             );
           })}
@@ -32,11 +38,10 @@ const Page1 = ({ pageVisible, selectedLanguage, cards }) => {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 1em;
-            margin: auto;
+            gap: 3em;
+            justify-items: center;
+            margin-top: 3em;
             text-align: center;
-            margin-top: 1em;
-            width: 80%;
           }
         `}</style>
       </div>
@@ -51,4 +56,10 @@ const mapStateToProps = ({ page1Visible, language, cards }) => {
     cards: cards,
   };
 };
-export default connect(mapStateToProps)(Page1);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    selectedCard: (cardId, selectionType) =>
+      dispatch(selectedCard(cardId, selectionType)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Page1);

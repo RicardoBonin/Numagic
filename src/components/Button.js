@@ -1,8 +1,8 @@
 import React from "react";
 
-const Button = ({ className, title = "Select", cardNumber }) => {
+const Button = ({ className, title = "Select", click }) => {
   return (
-    <button className={className} onClick={() => console.log(cardNumber)}>
+    <button className={className} onClick={click}>
       {title}
       <style jsx="true">{`
         button {
