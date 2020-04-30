@@ -4,9 +4,15 @@ import Instruction from "./Instruction";
 import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
-import { selectedCard } from "../actions";
+import { selectedCard, advance } from "../actions";
 
-const Page1 = ({ pageVisible, selectedLanguage, cards, selectedCard }) => {
+const Page1 = ({
+  pageVisible,
+  selectedLanguage,
+  cards,
+  selectedCard,
+  advance,
+}) => {
   const {
     page1: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
@@ -23,17 +29,21 @@ const Page1 = ({ pageVisible, selectedLanguage, cards, selectedCard }) => {
                   numbers={card.numbers}
                   size={"1em"}
                   key={i}
-                />
-                <Button
-                  className="button-select"
-                  title={button}
+                  cardSelected={card.selected ? "card" : "card1"}
                   click={() => selectedCard(card.id, "single")}
                 />
               </div>
             );
           })}
         </div>
+        <Button
+          className="button-select"
+          click={() => advance(false, true, false, false)}
+        />
         <style jsx="true">{`
+          .page-container {
+            text-align: center;
+          }
           .card-container {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
@@ -58,6 +68,8 @@ const mapStateToProps = ({ page1Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    advance: (page1, page2, page3, page4) =>
+      dispatch(advance(page1, page2, page3, page4)),
     selectedCard: (cardId, selectionType) =>
       dispatch(selectedCard(cardId, selectionType)),
   };

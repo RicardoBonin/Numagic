@@ -1,14 +1,14 @@
 import React from "react";
-const Card = ({ numbers, color, size }) => {
+const Card = ({ numbers, color, size, cardSelected, click }) => {
   // console.log(data.cards.filter(card=> card.selected === true))
   return (
     <div
-      className="card"
+      className={cardSelected}
       style={{ background: `${color}`, fontSize: `${size}` }}
     >
       {numbers.map((number) => {
         return (
-          <div key={number} className="number">
+          <div key={number} onClick={click} className="number">
             {number}
           </div>
         );
@@ -17,6 +17,16 @@ const Card = ({ numbers, color, size }) => {
         .card {
           border-radius: 3px;
           box-shadow: 5px 10px 10px #888888;
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+          margin-bottom: 20px;
+          max-width: 20em;
+          min-height: 12em;
+          padding: 20px;
+        }
+        .card1 {
+          border-radius: 3px;
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);

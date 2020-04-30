@@ -3,13 +3,12 @@ import { connect } from "react-redux";
 import Instruction from "./Instruction";
 import Card from "./Card";
 import Button from "./Button";
-import { step02 } from "../actions";
+import { advance } from "../actions";
 import { getLanguage } from "../languages/utils";
-const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
+const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
   const {
     page2: { instructionTitle, instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
-
   return (
     pageVisible && (
       <div className="page-container">
@@ -25,12 +24,15 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, step02 }) => {
                     numbers={card.numbers}
                     idx={i + 1}
                     size={"1.8em"}
+                    cardSelected={card.selected ? "card" : "card1"}
                   />
                   <Button
+                    key={i}
                     className="button-select"
                     cardNumber={2}
                     title={button}
-                    click={() => step02()}
+                    cardSelected={card.selected ? "card" : "card1"}
+                    click={() => advance(false, false, true, false)}
                   />
                 </div>
               );
@@ -60,7 +62,8 @@ const mapStateToProps = ({ page2Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    step02: () => dispatch(step02()),
+    advance: (page1, page2, page3, page4) =>
+      dispatch(advance(page1, page2, page3, page4)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Page2);

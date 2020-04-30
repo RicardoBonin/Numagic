@@ -27,6 +27,7 @@ const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
                     color={card.color}
                     numbers={card.numbers}
                     idx={i + 1}
+                    cardSelected={card.selected ? "card" : "card1"}
                     size={"1.0em"}
                   />
                 </div>

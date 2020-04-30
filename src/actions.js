@@ -14,9 +14,15 @@ export const selectedCard = (cardId, selectionType) => {
   };
 };
 
-export const card01 = () => {
+export const advance = (page1, page2, page3, page4) => {
   return {
-    type: "CARD01",
+    type: "NEXT_PAGE",
+    value: {
+      page1,
+      page2,
+      page3,
+      page4,
+    },
   };
 };
 
