@@ -1,17 +1,17 @@
 {
   "page1": {
     "instructionTitle": "Pick a card.",
-    "buttonText": "This"
+    "buttonText": "Next"
   },
   "page2": {
     "instructionTitle": "Pick a number.",
-    "instructionSubtitle": "Then click the \"Ready\" button.",
-    "button": "Ready"
+    "instructionSubtitle": "Then click the \"Next\" button.",
+    "button": "Next"
   },
   "page3": {
     "instructionTitle": "Select the cards which have your number.",
-    "instructionSubtitle": "Then click the \"Ready\" button.",
-    "button": "Ready"
+    "instructionSubtitle": "Then click the \"Next\" button.",
+    "button": "Next"
   },
   "page4": {
     "instructionTitle": "The number you picked was...",
