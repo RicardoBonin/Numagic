@@ -251,8 +251,6 @@ const INITIAL_STATE = {
 const makeCardSelected = (cardSelected, selectionType = "single", state) => {
   return {
     ...state,
-    page1Visible: false,
-    page2Visible: true,
     cards: state.cards.map((card) => {
       if (card.id === cardSelected) {
         return {
@@ -289,12 +287,16 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         action.value.selectionType,
         state
       );
-    case "STEP02":
+    case "NEXT_PAGE":
+      console.log(state);
       return {
         ...state,
-        page2Visible: false,
-        page3Visible: true,
+        page1Visible: action.value.page1,
+        page2Visible: action.value.page2,
+        page3Visible: action.value.page3,
+        page4Visible: action.value.page4,
       };
+
     case "STEP03":
       return {
         ...state,
