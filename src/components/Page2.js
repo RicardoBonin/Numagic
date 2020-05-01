@@ -24,14 +24,13 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                     numbers={card.numbers}
                     idx={i + 1}
                     size={"1.8em"}
-                    cardSelected={card.selected ? "card" : "card1"}
+                    cardSelected={card.selected ? "cardSelected" : "card"}
                   />
                   <Button
                     key={i}
                     className="button-select"
                     cardNumber={2}
                     title={button}
-                    cardSelected={card.selected ? "card" : "card1"}
                     click={() => advance(false, false, true, false)}
                   />
                 </div>

@@ -6,12 +6,11 @@ import { getLanguage } from "../languages/utils";
 import { restart } from "../actions";
 
 const Page4 = ({ pageVisible, selectedLanguage, cards, restart }) => {
-  let valorInicial = 0;
   const resultado = cards
     .filter((obj) => obj.selected === true)
     .reduce(
       (acumulador, valorAtual) => acumulador + valorAtual.firstNumber,
-      valorInicial
+      0
     );
 
   const {

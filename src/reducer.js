@@ -296,13 +296,6 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         page3Visible: action.value.page3,
         page4Visible: action.value.page4,
       };
-
-    case "STEP03":
-      return {
-        ...state,
-        page3Visible: false,
-        page4Visible: true,
-      };
     case "RESTART":
       return (state = INITIAL_STATE);
     default:

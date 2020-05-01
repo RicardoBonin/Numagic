@@ -29,7 +29,7 @@ const Page1 = ({
                   numbers={card.numbers}
                   size={"1em"}
                   key={i}
-                  cardSelected={card.selected ? "card" : "card1"}
+                  cardSelected={card.selected ? "cardSelected" : "card"}
                   click={() => selectedCard(card.id, "single")}
                 />
               </div>

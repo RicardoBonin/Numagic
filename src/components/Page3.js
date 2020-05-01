@@ -31,7 +31,7 @@ const Page3 = ({
                   color={card.color}
                   numbers={card.numbers}
                   idx={i + 1}
-                  cardSelected={card.selected ? "card" : "card1"}
+                  cardSelected={card.selected ? "cardSelected" : "card"}
                   size={"1.0em"}
                   click={() => selectedCard(card.id, "multiple")}
                 />
