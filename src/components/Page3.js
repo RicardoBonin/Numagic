@@ -4,11 +4,17 @@ import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
-import { step03 } from "../actions";
+import { advance, selectedCard } from "../actions";
 
 // TODO: nesta pagina eh onde tenho que criar os checkboxes e o botao Ready.
 
-const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
+const Page3 = ({
+  pageVisible,
+  selectedLanguage,
+  cards,
+  advance,
+  selectedCard,
+}) => {
   const { page3 } = getLanguage(selectedLanguage);
   return (
     pageVisible && (
@@ -18,23 +24,25 @@ const Page3 = ({ pageVisible, selectedLanguage, cards, step03 }) => {
           subtitle={page3.instructionSubtitle}
         />
         <div className="card-container" id="card-container-1">
-          {cards
-            .filter((obj, idx) => obj.selected === false)
-            .map((card, i) => {
-              return (
-                <div key={i}>
-                  <Card
-                    color={card.color}
-                    numbers={card.numbers}
-                    idx={i + 1}
-                    cardSelected={card.selected ? "card" : "card1"}
-                    size={"1.0em"}
-                  />
-                </div>
-              );
-            })}
+          {cards.map((card, i) => {
+            return (
+              <div key={i}>
+                <Card
+                  color={card.color}
+                  numbers={card.numbers}
+                  idx={i + 1}
+                  cardSelected={card.selected ? "card" : "card1"}
+                  size={"1.0em"}
+                  click={() => selectedCard(card.id, "multiple")}
+                />
+              </div>
+            );
+          })}
         </div>
-        <Button className="button-select" click={() => step03()} />
+        <Button
+          className="button-select"
+          click={() => advance(false, false, false, true)}
+        />
         <style jsx="true">{`
           div {
             text-align: center;
@@ -65,7 +73,10 @@ const mapStateToProps = ({ page3Visible, language, cards }) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    step03: () => dispatch(step03()),
+    advance: (page1, page2, page3, page4) =>
+      dispatch(advance(page1, page2, page3, page4)),
+    selectedCard: (cardId, selectionType) =>
+      dispatch(selectedCard(cardId, selectionType)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Page3);

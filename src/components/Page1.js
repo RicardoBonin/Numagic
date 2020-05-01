@@ -39,6 +39,7 @@ const Page1 = ({
         <Button
           className="button-select"
           click={() => advance(false, true, false, false)}
+          title={button}
         />
         <style jsx="true">{`
           .page-container {

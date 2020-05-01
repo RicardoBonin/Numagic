@@ -1,13 +1,21 @@
-/*  */import React from "react";
+import React from "react";
 import { connect } from "react-redux";
 import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
-import { restart } from '../actions'
+import { restart } from "../actions";
 
-const Page4 = ({ pageVisible, selectedLanguage, restart }) => {
+const Page4 = ({ pageVisible, selectedLanguage, cards, restart }) => {
+  let valorInicial = 0;
+  const resultado = cards
+    .filter((obj) => obj.selected === true)
+    .reduce(
+      (acumulador, valorAtual) => acumulador + valorAtual.firstNumber,
+      valorInicial
+    );
+
   const {
-    page4: { instructionTitle, button }
+    page4: { instructionTitle, button },
   } = getLanguage(selectedLanguage);
 
   return (
@@ -15,8 +23,12 @@ const Page4 = ({ pageVisible, selectedLanguage, restart }) => {
       <div className="page-container">
         <Instruction title={instructionTitle} />
         <div className="result-container">
-          <div className="result">22</div>
-          <Button className="button-select" click={() => restart()} title={button} />
+          <div className="result">{resultado}</div>
+          <Button
+            className="button-select"
+            click={() => restart()}
+            title={button}
+          />
         </div>
         <style jsx="true">{`
           .page-container {
@@ -49,16 +61,17 @@ const Page4 = ({ pageVisible, selectedLanguage, restart }) => {
   );
 };
 
-const mapStateToProps = ({ page4Visible, language }) => {
+const mapStateToProps = ({ page4Visible, language, cards }) => {
   return {
     pageVisible: page4Visible,
-    selectedLanguage: language
+    selectedLanguage: language,
+    cards: cards,
   };
 };
 const mapDispatchToPros = (dispatch) => {
   return {
     restart: () => dispatch(restart()),
-  }
+  };
 };
 
-export default connect( mapStateToProps, mapDispatchToPros )(Page4);
+export default connect(mapStateToProps, mapDispatchToPros)(Page4);

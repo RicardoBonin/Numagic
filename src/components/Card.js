@@ -16,7 +16,7 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
       <style jsx="true">{`
         .card {
           border-radius: 3px;
-          box-shadow: 5px 10px 10px #888888;
+          box-shadow: 5px 10px 10px #7fff00;
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
