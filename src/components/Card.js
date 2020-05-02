@@ -16,7 +16,7 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
       <style jsx="true">{`
         .cardSelected {
           border-radius: 3px;
-          box-shadow: 5px 10px 10px #7fff00;
+          box-shadow: 5px 10px 10px #000000;
           cursor: pointer;
           display: grid;
           grid-template-columns: repeat(8, 1fr);
@@ -29,6 +29,17 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
         .card {
           border-radius: 3px;
           cursor: pointer;
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+          margin-bottom: 20px;
+          max-width: 20em;
+          min-height: 12em;
+          padding: 20px;
+        }
+        .card-page2 {
+          border-radius: 3px;
+          box-shadow: 5px 10px 10px #888888;
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);

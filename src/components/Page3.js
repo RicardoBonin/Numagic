@@ -41,6 +41,7 @@ const Page3 = ({
         </div>
         <Button
           className="button-select"
+          title={page3.button}
           click={() => advance(false, false, false, true)}
         />
         <style jsx="true">{`
@@ -54,10 +55,10 @@ const Page3 = ({
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            gap: 3em;
+            gap: 1em;
             justify-items: center;
-            margin-top: 3em;
             text-align: center;
+            padding: 2em 12.5em 1em 12.5em;
           }
         `}</style>
       </div>

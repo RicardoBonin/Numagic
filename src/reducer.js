@@ -288,7 +288,6 @@ const cardsReducer = (state = INITIAL_STATE, action) => {
         state
       );
     case "NEXT_PAGE":
-      console.log(state);
       return {
         ...state,
         page1Visible: action.value.page1,

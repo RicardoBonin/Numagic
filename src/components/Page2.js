@@ -24,7 +24,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                     numbers={card.numbers}
                     idx={i + 1}
                     size={"1.8em"}
-                    cardSelected={card.selected ? "cardSelected" : "card"}
+                    cardSelected={"card-page2"}
                   />
                   <Button
                     key={i}
@@ -35,7 +35,21 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                   />
                 </div>
               );
-            })}
+            })
+          }
+          {cards.filter((obj=> obj.selected === false)) &&
+            <div>
+            <div className="error">
+              <p>[ERRO] Por Favor, volte e selecione um cartão</p>
+            </div>
+            <Button
+              className="button-select"
+              cardNumber={2}
+              title={"Voltar"}
+              click={() => advance(true, false, false, false)}
+            />
+            </div>
+          }
         </div>
         <style jsx="true">{`
           .page-container {
@@ -45,6 +59,12 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
             display: grid;
             justify-items: center;
             padding: 25px 0 0 0;
+          }
+          .error {
+            background: red;
+            border-radius: 3px;
+            margin-bottom: 1em;
+            padding: 2em;
           }
         `}</style>
       </div>

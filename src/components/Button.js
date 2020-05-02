@@ -13,6 +13,7 @@ const Button = ({ className, title = "Select", click }) => {
           border-radius: 2px;
           cursor: pointer;
           justify-self: center;
+          margin-bottom: 1em;
         }
 
         .button-select {
