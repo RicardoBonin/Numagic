@@ -6,7 +6,9 @@
   "page2": {
     "instructionTitle": "Pick a number.",
     "instructionSubtitle": "Then click the \"Next\" button.",
-    "button": "Next"
+    "errorMessage": "[ERROR] Please go back and select a card!",
+    "button": "Next",
+    "buttonError": "Back"
   },
   "page3": {
     "instructionTitle": "Select the cards which have your number.",

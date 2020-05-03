@@ -6,7 +6,9 @@
   "page2": {
     "instructionTitle": "Escolha um número.",
     "instructionSubtitle": "Depois clique on botao \"Avançar\".",
-    "button": "Avançar"
+    "errorMessage": "[ERRO] Por favor, retorne e selecione um cartão!",
+    "button": "Avançar",
+    "buttonError": "Voltar"
   },
   "page3": {
     "instructionTitle": "Clique nos cartões que possuem o número que você escolheu.",

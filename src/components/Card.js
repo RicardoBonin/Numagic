@@ -1,6 +1,5 @@
 import React from "react";
 const Card = ({ numbers, color, size, cardSelected, click }) => {
-  // console.log(data.cards.filter(card=> card.selected === true))
   return (
     <div
       className={cardSelected}
@@ -21,7 +20,6 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          margin-bottom: 20px;
           max-width: 20em;
           min-height: 12em;
           padding: 20px;
@@ -32,7 +30,6 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          margin-bottom: 20px;
           max-width: 20em;
           min-height: 12em;
           padding: 20px;
@@ -43,7 +40,6 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          margin-bottom: 20px;
           max-width: 20em;
           min-height: 12em;
           padding: 20px;

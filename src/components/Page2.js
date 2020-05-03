@@ -7,7 +7,13 @@ import { advance } from "../actions";
 import { getLanguage } from "../languages/utils";
 const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
   const {
-    page2: { instructionTitle, instructionSubtitle, button },
+    page2: {
+      instructionTitle,
+      instructionSubtitle,
+      button,
+      buttonError,
+      errorMessage,
+    },
   } = getLanguage(selectedLanguage);
   return (
     pageVisible && (
@@ -35,21 +41,21 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                   />
                 </div>
               );
-            })
-          }
-          {cards.filter((obj=> obj.selected === false)) &&
+            })}
+          {cards.filter((obj) => obj.selected === false) && (
             <div>
-            <div className="error">
-              <p>[ERRO] Por Favor, volte e selecione um cartão</p>
+              <div className="error">
+                <p>{errorMessage}</p>
+              </div>
+              <Button
+                className="button-select"
+                title={buttonError}
+                cardNumber={2}
+                title={"Voltar"}
+                click={() => advance(true, false, false, false)}
+              />
             </div>
-            <Button
-              className="button-select"
-              cardNumber={2}
-              title={"Voltar"}
-              click={() => advance(true, false, false, false)}
-            />
-            </div>
-          }
+          )}
         </div>
         <style jsx="true">{`
           .page-container {

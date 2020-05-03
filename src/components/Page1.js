@@ -52,7 +52,7 @@ const Page1 = ({
             gap: 1em;
             justify-items: center;
             text-align: center;
-            padding: 2em 12.5em 1em 12.5em;
+            padding: 2em 9em 1em 9em;
           }
         `}</style>
       </div>
