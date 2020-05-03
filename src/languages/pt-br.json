@@ -1,6 +1,7 @@
 {
   "page1": {
-    "instructionTitle": "Escolha um cartão e clique até aparecer a sobra dele. Depois clique em avançar.",
+    "instructionTitle": "Escolha um cartão e clique até que sua sombra apareça.",
+    "instructionSubtitle": "Depois clique on botao \"Avançar\".",
     "button": "Avançar"
   },
   "page2": {

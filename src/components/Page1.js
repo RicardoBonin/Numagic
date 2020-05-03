@@ -14,12 +14,12 @@ const Page1 = ({
   advance,
 }) => {
   const {
-    page1: { instructionTitle, button },
+    page1: { instructionTitle,instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
   return (
     pageVisible && (
       <div className="page-container">
-        <Instruction title={instructionTitle} />
+        <Instruction title={instructionTitle} subtitle={instructionSubtitle}/>
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (

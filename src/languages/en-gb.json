@@ -1,7 +1,8 @@
 {
   "page1": {
-    "instructionTitle": "Pick a card.",
-    "buttonText": "Next"
+    "instructionTitle": "Choose a card and click until its shadow appears.",
+    "instructionSubtitle": "Then click the \"Next\" button.",
+    "button": "Next"
   },
   "page2": {
     "instructionTitle": "Pick a number.",

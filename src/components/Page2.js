@@ -42,7 +42,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                 </div>
               );
             })}
-          {cards.filter((obj) => obj.selected === false) && (
+          {cards.filter((obj, idx) => obj.selected === true) && cards.filter((obj) => obj.selected === false) &&
             <div>
               <div className="error">
                 <p>{errorMessage}</p>
@@ -51,11 +51,11 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                 className="button-select"
                 title={buttonError}
                 cardNumber={2}
-                title={"Voltar"}
+                title={buttonError}
                 click={() => advance(true, false, false, false)}
               />
             </div>
-          )}
+          }
         </div>
         <style jsx="true">{`
           .page-container {
@@ -67,10 +67,11 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
             padding: 25px 0 0 0;
           }
           .error {
-            background: red;
+            background: rgba(255, 0, 0, 0.8);
             border-radius: 3px;
             margin-bottom: 1em;
             padding: 2em;
+            width: 95em;
           }
         `}</style>
       </div>
