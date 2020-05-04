@@ -5,6 +5,7 @@ import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
 import { advance, selectedCard } from "../actions";
+import _JSXStyle from "styled-jsx/style";
 
 // TODO: nesta pagina eh onde tenho que criar os checkboxes e o botao Ready.
 
@@ -44,7 +45,7 @@ const Page3 = ({
           title={page3.button}
           click={() => advance(false, false, false, true)}
         />
-        <style jsx="true">{`
+        <_JSXStyle id="Page3">{`
           div {
             text-align: center;
           }
@@ -60,7 +61,14 @@ const Page3 = ({
             text-align: center;
             padding: 2em 12.5em 1em 12.5em;
           }
-        `}</style>
+          @media (max-width: 768px) {
+            .card-container {
+              grid-template-columns: 1fr;
+              padding: 1em 0em 1em 0em;
+              justify-items: normal;
+            }
+          }
+        `}</_JSXStyle>
       </div>
     )
   );

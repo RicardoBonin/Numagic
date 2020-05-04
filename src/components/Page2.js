@@ -5,6 +5,8 @@ import Card from "./Card";
 import Button from "./Button";
 import { advance } from "../actions";
 import { getLanguage } from "../languages/utils";
+import _JSXStyle from "styled-jsx/style";
+
 const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
   const {
     page2: {
@@ -20,6 +22,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
       <div className="page-container">
         <Instruction title={instructionTitle} subtitle={instructionSubtitle} />
         <div className="card-container" id="card-container-1">
+          {console.log(cards.filter((obj, idx) => obj.selected === true))}
           {cards
             .filter((obj, idx) => obj.selected === true)
             .map((card, i) => {
@@ -29,7 +32,6 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                     color={card.color}
                     numbers={card.numbers}
                     idx={i + 1}
-                    size={"1.8em"}
                     cardSelected={"card-page2"}
                   />
                   <Button
@@ -42,22 +44,21 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
                 </div>
               );
             })}
-          {cards.filter((obj, idx) => obj.selected === true) && cards.filter((obj) => obj.selected === false) &&
-            <div>
+          {cards.filter((obj) => obj.selected === true).length === 0 && (
+            <div className="container-error">
               <div className="error">
-                <p>{errorMessage}</p>
+                <h3>{errorMessage}</h3>
               </div>
               <Button
                 className="button-select"
                 title={buttonError}
                 cardNumber={2}
-                title={buttonError}
                 click={() => advance(true, false, false, false)}
               />
             </div>
-          }
+          )}
         </div>
-        <style jsx="true">{`
+        <_JSXStyle id="Page2">{`
           .page-container {
             text-align: center;
           }
@@ -66,14 +67,22 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
             justify-items: center;
             padding: 25px 0 0 0;
           }
-          .error {
-            background: rgba(255, 0, 0, 0.8);
-            border-radius: 3px;
-            margin-bottom: 1em;
-            padding: 2em;
-            width: 95em;
+          .container-error {
+            width: 100%;
           }
-        `}</style>
+          .error {
+            background: rgba(255, 0, 0, 0.6);
+            border-radius: 5px;
+            padding: 2%;
+            width: 96%;
+          }
+          .button-select {
+            margin-top: 1em;
+          }
+          @media (max-width: 768px){
+            
+          }
+        `}</_JSXStyle>
       </div>
     )
   );

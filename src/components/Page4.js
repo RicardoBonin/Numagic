@@ -4,14 +4,12 @@ import Button from "./Button";
 import Instruction from "./Instruction";
 import { getLanguage } from "../languages/utils";
 import { restart } from "../actions";
+import _JSXStyle from "styled-jsx/style";
 
 const Page4 = ({ pageVisible, selectedLanguage, cards, restart }) => {
   const resultado = cards
     .filter((obj) => obj.selected === true)
-    .reduce(
-      (acumulador, valorAtual) => acumulador + valorAtual.firstNumber,
-      0
-    );
+    .reduce((acumulador, valorAtual) => acumulador + valorAtual.firstNumber, 0);
 
   const {
     page4: { instructionTitle, button },
@@ -29,7 +27,7 @@ const Page4 = ({ pageVisible, selectedLanguage, cards, restart }) => {
             title={button}
           />
         </div>
-        <style jsx="true">{`
+        <_JSXStyle id="Page4">{`
           .page-container {
             display: grid;
             grid-template-rows: auto;
@@ -54,7 +52,14 @@ const Page4 = ({ pageVisible, selectedLanguage, cards, restart }) => {
             background-color: #53bee6;
             margin-bottom: 0.2em;
           }
-        `}</style>
+          @media (max-width: 768px){
+            .result {
+              padding: 0.1em 0.4em 0.4em 0.4em;
+              height: 50%;
+              width: 50%;
+            }
+          }
+        `}</_JSXStyle>
       </div>
     )
   );

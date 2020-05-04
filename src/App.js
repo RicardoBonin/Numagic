@@ -8,6 +8,7 @@ import Page1 from "./components/Page1";
 import Page2 from "./components/Page2";
 import Page3 from "./components/Page3";
 import Page4 from "./components/Page4";
+import _JSXStyle from "styled-jsx/style";
 
 const store = createStore(cardsReducer);
 
@@ -25,11 +26,11 @@ function App() {
           </MagicContainer>
         </div>
       </div>
-      <style jsx="true">{`
+      <_JSXStyle id="App">{`
         .main {
-          padding: 0 50px;
+          padding: 0 1em;
         }
-      `}</style>
+      `}</_JSXStyle>
     </Provider>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import _JSXStyle from "styled-jsx/style";
 const Card = ({ numbers, color, size, cardSelected, click }) => {
   return (
     <div
@@ -12,7 +13,7 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           </div>
         );
       })}
-      <style jsx="true">{`
+      <_JSXStyle id="Card">{`
         .cardSelected {
           border-radius: 3px;
           box-shadow: 5px 10px 10px #000000;
@@ -38,16 +39,32 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           border-radius: 3px;
           box-shadow: 5px 10px 10px #888888;
           display: grid;
+          font-size: 1.8em;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
           max-width: 20em;
           min-height: 12em;
           padding: 20px;
+        
         }
         .number {
           padding: 0.7em;
         }
-      `}</style>
+        @media (max-width: 768px) {
+          .card {
+            max-width: 92%;
+          }
+          .card-page2 {
+            padding: 1em;
+            font-size: 1.1em;
+            min-height: auto;
+          }
+          .number {
+            padding: 0.3em;
+            font-size: 1em; 
+          }
+        }
+      `}</_JSXStyle>
     </div>
   );
 };

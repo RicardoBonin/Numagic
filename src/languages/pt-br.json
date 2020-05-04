@@ -1,12 +1,12 @@
 {
   "page1": {
-    "instructionTitle": "Escolha um cartão e clique até que sua sombra apareça.",
-    "instructionSubtitle": "Depois clique on botao \"Avançar\".",
+    "instructionTitle": "Clique em um cartão.",
+    "instructionSubtitle": "Depois clique no botao \"Avançar\".",
     "button": "Avançar"
   },
   "page2": {
     "instructionTitle": "Escolha um número.",
-    "instructionSubtitle": "Depois clique on botao \"Avançar\".",
+    "instructionSubtitle": "Depois clique no botao \"Avançar\".",
     "errorMessage": "[ERRO] Por favor, retorne e selecione um cartão!",
     "button": "Avançar",
     "buttonError": "Voltar"

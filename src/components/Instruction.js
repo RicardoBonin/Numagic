@@ -1,11 +1,12 @@
 import React from "react";
+import _JSXStyle from "styled-jsx/style";
 
 const Instruction = ({ title, subtitle }) => {
   return (
     <div className="instruction">
       <h2>{title}</h2>
       {!!subtitle && <h3>{subtitle}</h3>}
-      <style jsx="true">{`
+      <_JSXStyle id="Instruction">{`
         .instruction {
           display: grid;
           background-color: #c4c4c4;
@@ -25,7 +26,18 @@ const Instruction = ({ title, subtitle }) => {
           text-align: center;
           color: #000000;
         }
-      `}</style>
+        @media (max-width: 768px) {
+          h2,
+          h3 {
+            font-size: 1em;
+          }
+          .instruction {
+            border-radius: 5px;
+            height: auto;
+            padding: 5px;
+          }
+        }
+      `}</_JSXStyle>
     </div>
   );
 };

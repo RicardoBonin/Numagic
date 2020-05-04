@@ -1,4 +1,5 @@
 import React from "react";
+import _JSXStyle from "styled-jsx/style";
 import { connect } from "react-redux";
 import { ReactComponent as BrazilFlag } from "../assets/flags/brazil.svg";
 import { ReactComponent as UKFlag } from "../assets/flags/united-kingdom.svg";
@@ -16,7 +17,7 @@ const Header = ({ currentLanguage, changeLanguage }) => {
           <BrazilFlag />
         </span>
       </div>
-      <style jsx="true">{`
+      <_JSXStyle id="Header">{`
         .container-header {
           position: relative;
           display: grid;
@@ -61,24 +62,28 @@ const Header = ({ currentLanguage, changeLanguage }) => {
         svg:hover {
           opacity: 1 !important;
         }
-      `}</style>
+        @media (max-width: 768px) {
+          h1 {
+            font-size: 2em;
+            text-align: left;
+            padding-left: 1em;
+          }
+        }
+       `}</_JSXStyle>
     </div>
   );
 };
 
 const mapStateToProps = ({ language }) => {
   return {
-    currentLanguage: language
+    currentLanguage: language,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    changeLanguage: language => () => dispatch(changeLanguage(language))
+    changeLanguage: (language) => () => dispatch(changeLanguage(language)),
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

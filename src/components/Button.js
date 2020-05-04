@@ -1,10 +1,11 @@
 import React from "react";
+import _JSXStyle from "styled-jsx/style";
 
 const Button = ({ className, title = "Select", click }) => {
   return (
     <button className={className} onClick={click}>
       {title}
-      <style jsx="true">{`
+      <_JSXStyle id="Button">{`
         button {
           color: #fff;
           color: #fff;
@@ -24,7 +25,7 @@ const Button = ({ className, title = "Select", click }) => {
         .button-select:hover {
           background-color: #53a776;
         }
-      `}</style>
+      `}</_JSXStyle>
     </button>
   );
 };

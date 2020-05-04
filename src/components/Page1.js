@@ -5,6 +5,7 @@ import Button from "./Button";
 import { getLanguage } from "../languages/utils";
 import Card from "./Card";
 import { selectedCard, advance } from "../actions";
+import _JSXStyle from "styled-jsx/style";
 
 const Page1 = ({
   pageVisible,
@@ -14,12 +15,12 @@ const Page1 = ({
   advance,
 }) => {
   const {
-    page1: { instructionTitle,instructionSubtitle, button },
+    page1: { instructionTitle, instructionSubtitle, button },
   } = getLanguage(selectedLanguage);
   return (
     pageVisible && (
       <div className="page-container">
-        <Instruction title={instructionTitle} subtitle={instructionSubtitle}/>
+        <Instruction title={instructionTitle} subtitle={instructionSubtitle} />
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (
@@ -41,7 +42,7 @@ const Page1 = ({
           click={() => advance(false, true, false, false)}
           title={button}
         />
-        <style jsx="true">{`
+        <_JSXStyle id="Page1">{`
           .page-container {
             text-align: center;
           }
@@ -54,7 +55,14 @@ const Page1 = ({
             text-align: center;
             padding: 2em 9em 1em 9em;
           }
-        `}</style>
+          @media (max-width: 768px) {
+            .card-container {
+              grid-template-columns: 1fr;
+              padding: 1em 0em 1em 0em;
+              justify-items: normal;
+            }
+          }
+        `}</_JSXStyle>
       </div>
     )
   );
