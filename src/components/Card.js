@@ -21,9 +21,7 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          max-width: 20em;
-          min-height: 12em;
-          padding: 20px;
+          padding: 1em;
         }
         .card {
           border-radius: 3px;
@@ -31,9 +29,10 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          max-width: 20em;
-          min-height: 12em;
-          padding: 20px;
+          padding: 1em;
+        }
+        .card:hover {
+          box-shadow: 5px 10px 10px #888888;
         }
         .card-page2 {
           border-radius: 3px;
@@ -42,26 +41,35 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
           font-size: 1.8em;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(4, 1fr);
-          max-width: 20em;
-          min-height: 12em;
           padding: 20px;
         
         }
         .number {
           padding: 0.7em;
         }
+        
         @media (max-width: 768px) {
           .card {
-            max-width: 92%;
+            width:90%;
+            padding:5%
           }
           .card-page2 {
-            padding: 1em;
-            font-size: 1.1em;
-            min-height: auto;
+            font-size: 1em;
+            padding: 5%;
+            width:100%;
           }
           .number {
-            padding: 0.3em;
-            font-size: 1em; 
+            font-size: 1.1em; 
+          }
+        }
+        @media (max-width: 420px) {
+          .card-page2 {
+            font-size: 1.1em;
+            padding: 5%;
+            width:100%;
+          }
+          .number {
+            padding: 20%;
           }
         }
       `}</_JSXStyle>

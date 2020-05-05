@@ -24,16 +24,13 @@ const Page1 = ({
         <div className="card-container" id="card-container-1">
           {cards.map((card, i) => {
             return (
-              <div key={i}>
-                <Card
-                  color={card.color}
-                  numbers={card.numbers}
-                  size={"1em"}
-                  key={i}
-                  cardSelected={card.selected ? "cardSelected" : "card"}
-                  click={() => selectedCard(card.id, "single")}
-                />
-              </div>
+              <Card
+                color={card.color}
+                numbers={card.numbers}
+                key={i}
+                cardSelected={card.selected ? "cardSelected" : "card"}
+                click={() => selectedCard(card.id, "single")}
+              />
             );
           })}
         </div>
@@ -51,9 +48,15 @@ const Page1 = ({
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             gap: 1em;
-            justify-items: center;
-            text-align: center;
-            padding: 2em 9em 1em 9em;
+            justify-content: stretch;
+            text-align: stretch;
+            padding: 1em 1em 1em 1em;
+          }
+          @media(max-width: 1200px) {
+            .card-container {
+              grid-template-columns: 1fr 1fr;
+              padding: 1em 0em 1em 0em;
+            }
           }
           @media (max-width: 768px) {
             .card-container {

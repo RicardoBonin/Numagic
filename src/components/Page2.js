@@ -27,7 +27,7 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
             .filter((obj, idx) => obj.selected === true)
             .map((card, i) => {
               return (
-                <div key={i}>
+                <div className="card-container" key={i}>
                   <Card
                     color={card.color}
                     numbers={card.numbers}
@@ -79,8 +79,17 @@ const Page2 = ({ pageVisible, selectedLanguage, cards, advance }) => {
           .button-select {
             margin-top: 1em;
           }
-          @media (max-width: 768px){
-            
+          @media(max-width: 1200px) {
+            .card-container {
+              padding: 1em 0em 1em 0em;
+            }
+          }
+          @media (max-width: 768px) {
+            .card-container {
+              grid-template-columns: 1fr;
+              padding: 1em 0em 1em 0em;
+              font-size: 1em;
+            }
           }
         `}</_JSXStyle>
       </div>
