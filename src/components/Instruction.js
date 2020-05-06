@@ -26,6 +26,17 @@ const Instruction = ({ title, subtitle }) => {
           text-align: center;
           color: #000000;
         }
+        @media (max-width: 920px) {
+          h2,
+          h3 {
+            font-size: 1.4em;
+          }
+          .instruction {
+            border-radius: 5px;
+            height: auto;
+            padding: 5px;
+          }
+        }
         @media (max-width: 768px) {
           h2,
           h3 {

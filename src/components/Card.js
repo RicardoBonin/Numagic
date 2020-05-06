@@ -1,11 +1,8 @@
 import React from "react";
 import _JSXStyle from "styled-jsx/style";
-const Card = ({ numbers, color, size, cardSelected, click }) => {
+const Card = ({ numbers, color, cardSelected, click }) => {
   return (
-    <div
-      className={cardSelected}
-      style={{ background: `${color}`, fontSize: `${size}` }}
-    >
+    <div className={cardSelected} style={{ background: `${color}` }}>
       {numbers.map((number) => {
         return (
           <div key={number} onClick={click} className="number">
@@ -54,8 +51,8 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
             padding:5%
           }
           .card-page2 {
-            font-size: 1em;
-            padding: 5%;
+            font-size: initial;
+            padding: 0.5em;
             width:100%;
           }
           .number {
@@ -64,12 +61,11 @@ const Card = ({ numbers, color, size, cardSelected, click }) => {
         }
         @media (max-width: 420px) {
           .card-page2 {
-            font-size: 1.1em;
-            padding: 5%;
-            width:100%;
+            font-size: 1em;
+            padding: 0.7em;
           }
           .number {
-            padding: 20%;
+            padding: 0.3em 0.3em 0.3em 0.3em;
           }
         }
       `}</_JSXStyle>

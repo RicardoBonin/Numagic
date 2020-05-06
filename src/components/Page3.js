@@ -7,8 +7,6 @@ import Card from "./Card";
 import { advance, selectedCard } from "../actions";
 import _JSXStyle from "styled-jsx/style";
 
-// TODO: nesta pagina eh onde tenho que criar os checkboxes e o botao Ready.
-
 const Page3 = ({
   pageVisible,
   selectedLanguage,
@@ -33,7 +31,6 @@ const Page3 = ({
                   numbers={card.numbers}
                   idx={i + 1}
                   cardSelected={card.selected ? "cardSelected" : "card"}
-                  size={"1.0em"}
                   click={() => selectedCard(card.id, "multiple")}
                 />
               </div>
@@ -46,28 +43,31 @@ const Page3 = ({
           click={() => advance(false, false, false, true)}
         />
         <_JSXStyle id="Page3">{`
-          div {
-            text-align: center;
-          }
-          .button-select {
-            margin-top: 1em;
-          }
+        .page-container {
+          text-align: center;
+        }
+        .card-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          gap: 1em;
+          justify-content: stretch;
+          text-align: stretch;
+          padding: 1em 1em 1em 1em;
+        }
+        @media(max-width: 1200px) {
           .card-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 1em;
-            justify-items: center;
-            text-align: center;
-            padding: 2em 12.5em 1em 12.5em;
+            grid-template-columns: 1fr 1fr;
+            padding: 1em 0em 1em 0em;
           }
-          @media (max-width: 768px) {
-            .card-container {
-              grid-template-columns: 1fr;
-              padding: 1em 0em 1em 0em;
-              justify-items: normal;
-            }
+        }
+        @media (max-width: 768px) {
+          .card-container {
+            grid-template-columns: 1fr;
+            padding: 1em 0em 1em 0em;
+            justify-items: normal;
           }
+        }
         `}</_JSXStyle>
       </div>
     )

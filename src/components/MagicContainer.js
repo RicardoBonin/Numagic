@@ -8,7 +8,7 @@ const MagicContainer = ({ children }) => {
       <_JSXStyle id="MagicContainer">{`
         .magic-container {
           background-color: #fff;
-          height: 100%;
+          height: auto;
         }
       `}</_JSXStyle>
     </div>
