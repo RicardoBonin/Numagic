@@ -10,3 +10,5 @@ O sistema ainda conta com dois idiomas dispoviveis no momento.
 
 ### Recursos utilizados!
 O projeto foi desenvolvido em reactJS, html, css e o estado da aplicação é todo gerenciado através do redux.
+
+URL do projeto rodando:https://numagic-3cbd1.web.app/
